@@ -1,0 +1,49 @@
+/* No default here. Let JS set it only when needed. */
+
+/* --- KaTeX / MathJax rendered output --- */
+.katex .mtext,
+.katex .text {
+  font-family: var(--obsidian-latex-font-family, inherit) !important;
+}
+
+mjx-container mjx-mtext {
+  font-family: var(--obsidian-latex-font-family, inherit) !important;
+}
+
+mjx-container mjx-mtext mjx-c {
+  display: inline !important;
+}
+
+mjx-container mjx-mtext mjx-c::before {
+  font-family: var(--obsidian-latex-font-family, inherit) !important;
+  display: inline !important;
+  width: auto !important;
+  padding: 0 !important;
+}
+
+/* Scale rendered math but not text */
+mjx-container {
+  font-size: calc(1em * var(--obsidian-latex-math-scale, 1));
+}
+
+.katex {
+  font-size: calc(1em * var(--obsidian-latex-math-scale, 1));
+}
+
+/* Cancel scaling for text elements */
+.katex .mtext,
+.katex .text,
+mjx-container mjx-mtext {
+  font-size: calc(1em / var(--obsidian-latex-math-scale, 1)) !important;
+}
+
+/* --- Source / Live Preview raw LaTeX ---
+   Make the typed `$...$` / `$$...$$` content follow the same math size setting.
+   This targets the math token itself plus the surrounding dollar markers.
+*/
+.markdown-source-view.mod-cm6 .cm-math,
+.markdown-source-view.mod-cm6 .cm-formatting-math,
+.cm-s-obsidian span.cm-math,
+.cm-s-obsidian span.cm-formatting-math {
+  font-size: calc(1em * var(--obsidian-latex-math-scale, 1));
+}

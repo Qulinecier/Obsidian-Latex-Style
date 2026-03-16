@@ -1,0 +1,9 @@
+{
+	"id": "LatexStyle",
+	"name": "Latex Style",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "Change the font style of latex",
+	"author": "Qulinecier",
+	"isDesktopOnly": false
+}
